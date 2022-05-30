@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AngularFireDatabase } from '@angular/fire/database';
+import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 import { Observable } from 'rxjs';
 
 import { Comment } from './class/comment';
@@ -22,18 +22,23 @@ const COMMENTS: Comment[] = [
 })
 export class AppComponent {
 
-  comments = COMMENTS;
+  // comments = COMMENTS;
+  comments$: Observable<Comment[]>;
+  commentsRef: AngularFireList<Comment>;
   currentUser = CURRENT_USER;
   comment = '';
   item$: Observable<any>;
 
   constructor(private db: AngularFireDatabase) {
     this.item$ = db.object('/item').valueChanges();
+    this.commentsRef = db.list('/comments');
+    this.comments$ = this.commentsRef.valueChanges();
   }
 
   addComment(comment: string): void {
     if (comment) {
-      this.comments.push(new Comment(this.currentUser, comment));
+      this.commentsRef.push(new Comment(this.currentUser, comment));
+      this.comment = '';
     }
   }
 
