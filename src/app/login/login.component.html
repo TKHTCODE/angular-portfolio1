@@ -1,6 +1,6 @@
 <div class="container mt-5 p-5">
-    <form #form="ngForm" (ngSubmit)="signup(form)" class="text-center p-4">
-        <h2 class="heading text-center m-4">New Account</h2>
+    <form #form="ngForm" (ngSubmit)="login(form)" class="text-center p-4">
+        <h2 class="heading text-center m-4">Login</h2>
     
             <div class="form-group">
                 <input ngModel type="email" name="email" class="form-control" placeholder="email">
@@ -8,9 +8,9 @@
             <div class="form-group">
                 <input ngModel type="password" name="password" class="form-control" placeholder="password">
             </div>
-            <button class="btn w-50 m-2 btn-primary" type="submit">Register</button>
+            <button class="btn w-50 m-2 btn-primary" type="submit">Login</button>
     </form>
     <div class="note text-center">
-        <a routerLink="/login" class="signup-link">Login</a>
+        <a routerLink="/signup" class="signup-link">Register</a>
     </div>
 </div>

@@ -4,25 +4,24 @@ import { Router } from '@angular/router';
 import { AuthService } from '../core/services/auth.service';
 
 @Component({
-  selector: 'ac-sign-up',
-  templateUrl: './sign-up.component.html',
-  styleUrls: ['./sign-up.component.css']
+  selector: 'ac-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
 })
-export class SignUpComponent implements OnInit {
+export class LoginComponent implements OnInit {
 
   constructor(
-    private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
   }
 
-  signup(form: NgForm):void{
+  login(form: NgForm): void{
     const {email, password} = form.value;
 
-    this.authService.create(email, password)
+    this.authService.login(email, password)
       .then(() => this.router.navigateByUrl('/'));
   }
-
 }
