@@ -1,0 +1,14 @@
+<div class="user-list">
+    <div class="inner">
+        <ul class="users">
+            <li *ngFor="let user of users$ | async">
+                <a [routerLink]="['users', user.uid]">
+                    <div class="image">
+                        <img src="//placehold.jp/30x30.png" alt="{{user.displayName}}" class="rounded-circle">
+                        {{ user.displayName }}
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
