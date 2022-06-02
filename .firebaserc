@@ -1,9 +1,12 @@
 {
+  "projects": {
+    "angular-portfolio1": "angular-typescript-afa57"
+  },
   "targets": {
-    "angular-portfolio1-e4b5f": {
+    "angular-typescript-afa57": {
       "hosting": {
         "angular-portfolio1": [
-          "angular-portfolio1-e4b5f"
+          "angular-typescript-afa57"
         ]
       }
     }
