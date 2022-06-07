@@ -1,14 +1,11 @@
 <ng-template #welcome>
-    <div class="welcome">
-        <div class="jumbotron jumbotron-fluid p-5 border border-secondary bg-light">
-            <div class="container">
-                <h1 class="display-3">
-                    Chat
+    <div>
+        <div class="video-container">
+            <video src="/assets/images/chat-cover.mp4" [muted]="true" autoPlay playsInline muted loop></video>
+            <div class="video-text d-flex align-items-center justify-content-center">
+                <h1 class="text-center text-white text-large">
+                    Taka Chat
                 </h1>
-                <p class="w-100">
-                    <a href="/signup">Sign Up</a>
-                    <a href="/login">Login</a>
-                </p>
             </div>
         </div>
     </div>
@@ -17,14 +14,15 @@
 
 <div *ngIf="currentUser$ | async; else welcome" class="chat-container">
     <ac-user-list></ac-user-list>
-    <div class="content">
-        <section class="chat">
-            <div class="chat-timeline">
+    <div class="content pb-5">
+        <section class="chat pb-5">
+            <div class="chat-timeline pb-5">
                 <div *ngFor="let comment of comments$ | async"
-                    class="list-group-item list-group-item-action flex-column align-items-start border-0">
+                    class="list-group-item list-group-item-action flex-column align-items-start border-0 bg-primary">
                     <div class="media">
-                        <div *ngIf="(comment.user.uid !== currentUser.uid )" class="media-left">
-                            <a href="#" class="icon">{{ comment.user.initial }}</a>
+                        <div *ngIf="(comment.user.uid !== currentUser.uid )"
+                            class="media-right bg-light rounded-circle">
+                            <a href="#" class="icon text-info">{{ comment.user.initial }}</a>
                         </div>
                         <div class="media-body">
                             <div class="d-flex w-100 justify-content-between">
@@ -53,25 +51,26 @@
                                 </div>
                             </ng-container>
                         </div>
-                        <div *ngIf="comment.user.uid === currentUser.uid" class="media-right">
-                            <a href="#" class="icon">{{ comment.user.initial }}</a>
+                        <div *ngIf="comment.user.uid === currentUser.uid" class="media-right bg-light rounded-circle">
+                            <a href="#" class="icon text-primary">{{ comment.user.initial }}</a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="chat-editor">
-            <form class="chat-form">
-                <div class="form-header d-flex flex-row-reverse mb-2">
-                    <span class="input-group-btn">
-                        <button (click)="addComment(comment);" class="btn btn-info btn-sm" type="submit"
-                            tabindex="2">Submit</button>
-                    </span>
-                </div>
+
+        <section class="chat-editor fixed-bottom w-100 bg-light m-0 p-2">
+            <form class="chat-form d-flex">
                 <div class="input-group">
                     <textarea [(ngModel)]="comment" name="comment" class="form-control" placeholder="message"
                         tabindex="1"></textarea>
+                </div>
+                <div class="form-header">
+                    <span class="input-group-btn">
+                        <button (click)="addComment(comment);" class="btn btn-primary btn-lg m-2" type="submit"
+                            tabindex="2">Submit</button>
+                    </span>
                 </div>
             </form>
         </section>

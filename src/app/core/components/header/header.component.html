@@ -1,8 +1,8 @@
-<nav class="navbar justify-content-between fixed-top navbar-inverse bg-light text-dark border-bottom">
-  <a routerLink="/" class="navbar-brand text-dark">Taka PF</a>
+<nav class="navbar justify-content-between fixed-top navbar-inverse text-white border-bottom bg-header">
+  <a routerLink="/" class="navbar-brand text-white">Taka PF</a>
   <div *ngIf="!isLogin">
-    <a routerLink="/login" class="navbar-text text-dark mr-2">Login</a>
-    <a routerLink="/signup" class="navbar-text text-dark">Sign Up</a>
+    <a routerLink="/login" class="navbar-text text-white mr-2">Login</a>
+    <a routerLink="/signup" class="navbar-text text-white">Sign Up</a>
   </div>
-  <a *ngIf="isLogin" routerLink="/" class="navbar-text text-dark" (click)="logout()">Logout</a>
+  <a *ngIf="isLogin" routerLink="/" class="navbar-text text-white" (click)="logout()">Logout</a>
 </nav>

@@ -4,7 +4,7 @@
             <li *ngFor="let user of users$ | async">
                 <a [routerLink]="['users', user.uid]">
                     <div class="image">
-                        <img src="//placehold.jp/30x30.png" alt="{{user.displayName}}" class="rounded-circle">
+                        <img width="30px" src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Unknown_person.jpg" alt="{{user.displayName}}" class="rounded-circle">
                         {{ user.displayName }}
                     </div>
                 </a>

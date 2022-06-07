@@ -21,8 +21,8 @@
   
   .users li a {
     display: block;
-    height: 50px;
-    padding: 10px;
+    height: 70px;
+    padding: 20px 10px;
   }
   
   .image {
