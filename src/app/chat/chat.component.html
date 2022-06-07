@@ -12,8 +12,10 @@
 </ng-template>
 
 
-<div *ngIf="currentUser$ | async; else welcome" class="chat-container">
-    <ac-user-list></ac-user-list>
+<div *ngIf="currentUser$ | async; else welcome" class="chat-container vw-100">
+    <div class="d-none d-md-block">
+        <ac-user-list></ac-user-list>
+    </div>
     <div class="content pb-5">
         <section class="chat pb-5">
             <div class="chat-timeline pb-5">
